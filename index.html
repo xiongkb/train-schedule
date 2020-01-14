@@ -12,9 +12,59 @@
     <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
 </head>
 <body>
+    <!-- title header -->
+    <div class="container">
+        <div class="jumbotron text-center">
+            <h1>Coco Bean Train Star</h1>
+            <p>A Vanilla Bean Company</p>
+        </div>
     
+        <!-- schedule -->
+        <div class="card">
+            <p class="card-header">Train Schedule</p>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Train Name</th>
+                        <th>Destination</th>
+                        <th>Frequency(min)</th>
+                        <th>Next Arrival</th>
+                        <th>Minutes Away</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    
+        <!-- adding a train goes here -->
+        <div class="card mt-3">
+            <p class="card-header">Submit a Train</p>
+            <form>
+                <div class="form-group">
+                    <label for="name">Train Name</label>
+                    <input type="text" class="form-control" id="train-name">
+                </div>
+                <div class="form-group">
+                    <label for="name">Destination</label>
+                    <input type="text" class="form-control" id="destination">
+                </div>
+                <div class="form-group">
+                    <label for="name">Frequency(min)</label>
+                    <input type="text" class="form-control" id="destination">
+                </div>
+                <div class="form-group">
+                    <label for="name">Frequency(min)</label>
+                    <input type="text" class="form-control" id="destination">
+                </div>
+            </form>
+        </div>
+    </div>
+
     <!-- js and jquery library -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="./assets/style.css"></script>
+
+    <!-- links for firebase -->
+    <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
 </body>
 </html>
