@@ -1,7 +1,9 @@
+$(document).ready(start);
 // for time options
 var hour;
 var mins;
 var frequency;
+var x;
 for (var i = 0; i < 24; i++) {
     hour = $("<option>");
     x = i.toString();
@@ -24,6 +26,13 @@ for (var i = 0; i < 60; i = i+5) {
     $("#z-min").append(frequency);
 }
 
+function start(){
+    $("#train-name").val("");
+    $("#destination").val("");
+    $("#z-min").val("");
+    $("#hour").val("");
+    $("#min").val("");
+}
 // My web app's Firebase configuration
 var firebaseConfig = {
     apiKey: "AIzaSyCiJ31L3E6h7-dhI_CmRXgGN4kI-dFtBs8",
@@ -57,6 +66,8 @@ var submisson = {
     departure: departTime,
     frequency :frequency
 }
-
 data.ref().push(submisson);
+
+// reset user input so it's easier to submit new items
+start();
 })
