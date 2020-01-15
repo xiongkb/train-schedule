@@ -15,7 +15,7 @@
     <!-- title header -->
     <div class="container">
         <div class="jumbotron text-center">
-            <h1>Coco Bean Train Star</h1>
+            <h1>Coco Bean Train Star Station</h1>
             <p>A Vanilla Bean Company</p>
         </div>
     
@@ -26,6 +26,7 @@
                 <thead>
                     <tr>
                         <th>Train Name</th>
+                        <th>Departure Time(HH:MM)</th>
                         <th>Destination</th>
                         <th>Frequency(min)</th>
                         <th>Next Arrival</th>
@@ -36,35 +37,42 @@
         </div>
     
         <!-- adding a train goes here -->
-        <div class="card mt-3">
+        <div class="card mt-3 mb-5">
             <p class="card-header">Submit a Train</p>
             <form>
-                <div class="form-group">
+                <div class="form-group p-2">
                     <label for="name">Train Name</label>
-                    <input type="text" class="form-control" id="train-name">
+                    <input type="text" class="form-control" id="train-name" placeholder="e.g. Nine Lives">
                 </div>
-                <div class="form-group">
-                    <label for="name">Destination</label>
-                    <input type="text" class="form-control" id="destination">
+                <div class="form-group p-2">
+                    <label>Departure Time(HH:MM)</label><br>
+                    <select id="hour">
+                        
+                    </select> :
+                    <select id="min">
+                        
+                    </select>
                 </div>
-                <div class="form-group">
-                    <label for="name">Frequency(min)</label>
-                    <input type="text" class="form-control" id="destination">
+                <div class="form-group p-2">
+                    <label for="destination">Destination</label>
+                    <input type="text" class="form-control" id="destination" placeholder="e.g. Paw Station">
                 </div>
-                <div class="form-group">
-                    <label for="name">Frequency(min)</label>
-                    <input type="text" class="form-control" id="destination">
+                <div class="form-group p-2">
+                    <label for="frequency">Frequency(min)</label><br>
+                    <select id="z-min">
+
+                    </select>
                 </div>
+                <button type="submit" class="btn btn-primary m-2">Submit</button>
             </form>
         </div>
     </div>
 
     <!-- js and jquery library -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript" src="./assets/style.css"></script>
+    <script type="text/javascript" src="./assets/logic.js"></script>
 
     <!-- links for firebase -->
-    <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
+    <!--  <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script> -->
 </body>
 </html>
