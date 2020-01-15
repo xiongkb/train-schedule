@@ -45,6 +45,10 @@
                     <input type="text" class="form-control" id="train-name" placeholder="e.g. Nine Lives">
                 </div>
                 <div class="form-group p-2">
+                    <label for="destination">Destination</label>
+                    <input type="text" class="form-control" id="destination" placeholder="e.g. Paw Station">
+                </div>
+                <div class="form-group p-2">
                     <label>Departure Time(HH:MM)</label><br>
                     <select id="hour">
                         
@@ -54,16 +58,12 @@
                     </select>
                 </div>
                 <div class="form-group p-2">
-                    <label for="destination">Destination</label>
-                    <input type="text" class="form-control" id="destination" placeholder="e.g. Paw Station">
-                </div>
-                <div class="form-group p-2">
                     <label for="frequency">Frequency(min)</label><br>
                     <select id="z-min">
 
                     </select>
                 </div>
-                <button type="submit" class="btn btn-primary m-2">Submit</button>
+                <button type="submit" class="btn btn-primary m-2 submit-btn">Submit</button>
             </form>
         </div>
     </div>
@@ -73,6 +73,7 @@
     <script type="text/javascript" src="./assets/logic.js"></script>
 
     <!-- links for firebase -->
-    <!--  <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script> -->
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
 </body>
 </html>
