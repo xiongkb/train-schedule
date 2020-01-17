@@ -49,25 +49,53 @@ firebase.initializeApp(firebaseConfig);
 var data = firebase.database();
 
 $(".submit-btn").on("click", function(event) {
-event.preventDefault();
+    event.preventDefault();
 
-// users input
-var trainName = $("#train-name").val().trim();
-var destination = $("#destination").val().trim();
-var frequency = $("#z-min").val();
-var selectedHour = $("#hour").val();
-var selectedMins = $("#min").val();
-var departTime = selectedHour + ":" + selectedMins;
+    // users input
+    var trainName = $("#train-name").val().trim();
+    var destination = $("#destination").val().trim();
+    var frequency = $("#z-min").val();
+    var selectedHour = $("#hour").val();
+    var selectedMins = $("#min").val();
+    var startTime = selectedHour + selectedMins;
+    var starts = moment(startTime, "hmm").format("HH:mm");
+    // upload data submisson to firebase
+    var submisson = {
+        name: trainName,
+        destination: destination,
+        startTime: starts,
+        frequency :frequency
+    }
+    data.ref().push(submisson);
 
-// upload data submisson to firebase
-var submisson = {
-    name: trainName,
-    destination: destination,
-    departure: departTime,
-    frequency :frequency
-}
-data.ref().push(submisson);
 
-// reset user input so it's easier to submit new items
-start();
+    // reset user input so it's easier to submit new items
+    start();
 })
+
+// displaying data onto html
+data.ref().on("child_added", function(savedData){
+    var tname = savedData.val().name;
+    var destination = savedData.val().destination;
+    var startTime = savedData.val().startTime;
+    var frequency = savedData.val().frequency;
+
+    // using moment.js to calculate next arrival and minutes left till arrival
+    var startMinutes = moment.duration(startTime).asMinutes()
+    var difference = moment().diff(moment(startMinutes), "minutes");
+    var modTime = difference % parseInt(frequency);
+    var minutesAway = frequency - modTime;
+    var nextArrival = moment().add(minutesAway, "m").format("HH:mm");
+
+    // pasting onto html
+    var row = $("<tr>").append(
+        $("<td>").text(tname),
+        $("<td>").text(startTime),
+        $("<td>").text(destination),
+        $("<td>").text(frequency),
+        $("<td>").text(nextArrival),
+        $("<td>").text(minutesAway),
+    );
+    $("#input-table").append(row);
+});
+    
