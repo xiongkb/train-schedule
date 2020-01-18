@@ -1,0 +1,10 @@
+.jumbotron, .card-header{
+    background: #ffd1dc;
+}
+.card {
+    border: #ffc0cb 1px solid;
+}
+.btn {
+    background: #ffc0cb;
+    border: #ffd1dc 1px solid;
+}
