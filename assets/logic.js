@@ -20,10 +20,12 @@ for (var i = 0; i < 60; i = i+5) {
     if ( i < 10) {
         x = "0" + x;
     }
+    if (x !== "00") {
+        frequency.append(x);
+        $("#z-min").append(frequency);
+    }
     mins.append(x);
-    frequency.append(x);
     $("#min").append(mins);
-    $("#z-min").append(frequency);
 }
 
 function start(){
